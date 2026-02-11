@@ -3,7 +3,7 @@ plugins {
     id("hytale-mod") version "0.+"
 }
 
-group = "com.example"
+group = "com.mitoPlugin"
 version = "1.0.0"
 val javaVersion = 25
 
