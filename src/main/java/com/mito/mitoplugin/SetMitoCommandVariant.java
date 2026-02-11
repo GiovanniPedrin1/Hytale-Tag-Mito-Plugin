@@ -41,6 +41,7 @@ public final class SetMitoCommandVariant extends AbstractCommand {
         String mitoTag = manager.config.mitoTag;
 
         boolean canUse = PermissionsModule.get().hasPermission(senderUuid, "mito.admin", false);
+        if (!ctx.isPlayer()) { canUse = true; }
         if (!canUse) {
             ctx.sendMessage(Message.join(
                     Message.raw(mitoSysTag).color(mitoSysColor),

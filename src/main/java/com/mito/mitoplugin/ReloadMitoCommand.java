@@ -29,7 +29,7 @@ public class ReloadMitoCommand extends CommandBase {
         String mitoTag = manager.config.mitoSysTag;
 
         boolean canUse = PermissionsModule.get().hasPermission(playerUUID, "mito.admin", false);
-
+        if (!ctx.isPlayer()) { canUse = true; }
         if (canUse){
             manager.reloadConfig(ctx);
             manager.reloadRepository(ctx);
