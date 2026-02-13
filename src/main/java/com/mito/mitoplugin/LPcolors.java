@@ -15,8 +15,6 @@ public final class LPcolors {
         StringBuilder buf = new StringBuilder();
 
         Color current = null; // null = default
-        // Se você tiver API de estilo no Message, dá pra guardar flags aqui (bold etc.)
-        // boolean bold=false, italic=false, underline=false, strike=false, obf=false;
 
         for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
@@ -32,7 +30,7 @@ public final class LPcolors {
 
                 if (code == 'r') {
                     current = null;
-                    // reset flags também
+                    // reset flags
                     i++;
                     continue;
                 }
@@ -43,12 +41,6 @@ public final class LPcolors {
                     i++;
                     continue;
                 }
-
-                // estilos (se quiser suportar; senão ignore)
-                // switch (code) { case 'l': bold=true; break; ... }
-                // i++; continue;
-
-                // Se não reconheceu, trata como texto literal
             }
 
             buf.append(c);
@@ -68,7 +60,6 @@ public final class LPcolors {
 
     private static Message applyStyle(Message msg, Color color /*, flags*/) {
         if (color != null) msg = msg.color(color);
-        // Se tiver métodos de estilo no seu Message, aplique aqui.
         return msg;
     }
 

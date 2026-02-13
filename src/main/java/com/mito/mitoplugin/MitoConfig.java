@@ -105,7 +105,7 @@ public class MitoConfig {
 
         try (Writer w = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8)) {
             gson.toJson(this, w);
-            w.flush(); // ajuda a diagnosticar (mesmo fechando depois)
+            w.flush();
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Erro ao salvar em mito_config.json");
         }
