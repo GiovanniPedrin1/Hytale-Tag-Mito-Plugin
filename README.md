@@ -105,3 +105,15 @@ Exemplo no jogo:
 - O sistema continua funcionando sem LuckPerms 
 - Se o mito sair do servidor os comandos continuam retornando o nome do mito
 - Possibilidade de mudar tag mito do sistema para algo diferente da tag do player
+
+
+
+## Como usar
+Para usar esse plugin coloque a versão compilada ([compiled_version](./compiled_version/MitoPlugin-1.0.1.jar)) dentro da pasta ``/mods`` do mapa/server e se quiser integrar com o [LuckPerms](https://luckperms.net/download) coloque o [LuckPerms](https://luckperms.net/download) na mesma pasta ``/mods``
+
+Para dar acesso aos comandos sem luckperms dê `/op <player>`  
+
+Caso esteja com luckperms rodê o comando abaixo:
+```
+/lp user <player> permission set mito.admin true
+```
