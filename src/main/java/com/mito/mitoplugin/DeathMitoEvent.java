@@ -19,7 +19,7 @@ public final class DeathMitoEvent extends DeathSystems.OnDeathSystem {
 
     public DeathMitoEvent(MitoManager manager){
         DeathMitoEvent.manager = manager;
-        LOGGER.atInfo().log("DeathMito foi iniciado"); // Debug
+        LOGGER.atInfo().log("DeathMito foi iniciado");
     }
 
     @Override
@@ -32,34 +32,27 @@ public final class DeathMitoEvent extends DeathSystems.OnDeathSystem {
                                  @NonNull DeathComponent deathComponent,
                                  @NonNull Store<EntityStore> store,
                                  @NonNull CommandBuffer<EntityStore> commandBuffer) {
-        LOGGER.atInfo().log("Morte detectada..."); // Debug
         PlayerRef victim = store.getComponent(ref, PlayerRef.getComponentType());
         if (victim == null) {
-            LOGGER.atInfo().log("DeathMitoEvent: victim PlayerRef null"); // Debug
             return;
         }
         if (!manager.isMito(victim.getUuid())) return;
-        LOGGER.atInfo().log("Mito morreu: " + victim.getUsername()); // Debug
 
         Damage deathInfo = deathComponent.getDeathInfo();
         if (deathInfo == null) {
-            LOGGER.atInfo().log("DeathMitoEvent: deathInfo null"); // Debug
             return;
         }
 
         Damage.Source source = deathInfo.getSource();
-        LOGGER.atInfo().log("Death source = " + source.getClass().getName()); // Debug
 
         PlayerRef killer = null;
 
         if (source instanceof Damage.EntitySource entitySource) {
             killer = store.getComponent(entitySource.getRef(), PlayerRef.getComponentType());
-            LOGGER.atInfo().log("EntitySource killerRef=" + (killer == null ? "null" : killer.getUsername())); // Debug
         }
 
         if (killer == null) return;
 
         manager.setMito(false, killer.getUuid());
-        LOGGER.atInfo().log("DeathMitoEvent aplicado no killer: " + killer.getUsername()); // Debug
     }
 }
