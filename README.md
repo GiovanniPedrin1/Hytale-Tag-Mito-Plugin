@@ -59,7 +59,7 @@
 
 - ***{tag}*** representa a tag
 
-- ***{sysTag}*** representa a a tag do sistema
+- ***{sysTag}*** representa a tag do sistema
 
 - ***{new}*** representa o atacante
 
